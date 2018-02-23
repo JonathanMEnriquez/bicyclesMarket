@@ -57,7 +57,7 @@ app.post('/api/login', function(req, res) {
 })
 
 // register
-app.post('/api/user', function(req, res) {
+app.post('/api/users', function(req, res) {
     let newUser = new User(req.body);
     newUser.save(function(err, user) {
         if (err) {

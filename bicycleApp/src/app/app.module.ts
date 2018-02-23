@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { LoginRegComponent } from './login-reg/login-reg.component';
+import { FormsModule } from '@angular/forms';
+import { ApiService } from './api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -14,9 +17,11 @@ import { LoginRegComponent } from './login-reg/login-reg.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

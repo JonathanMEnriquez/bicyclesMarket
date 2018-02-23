@@ -1,3 +1,21 @@
-<p>
-  login-reg works!
-</p>
+<div id="body">
+  <div id="errors" *ngIf="errors.length > 0" >
+    <ul *ngFor="let error of errors" >
+      <li class="errors">{{error}}</li>
+    </ul>
+  </div>
+  <form (submit)="login()" class="login">
+    <p class="loginItem">Email: <input class="loginInput" type="text" [(ngModel)]="user.email" name="loginEmailInput" ></p>
+    <p class="loginItem">Password: <input class="loginInput" type="password" [(ngModel)]="user.password" name="loginPasswordInput" ></p>
+    <input name="submit" type="submit" value="Login">
+  </form>
+  <form (submit)="addNewUser()" class="login">
+    <p class="loginItem">First Name: <input class="loginInput" type="text" [(ngModel)]="newUser.first_name" name="firstNameInput" ></p>
+    <p class="loginItem">Last Name: <input class="loginInput" type="text" [(ngModel)]="newUser.last_name" name="lastNameInput" ></p>
+    <p class="loginItem">Email: <input class="loginInput" type="text" [(ngModel)]="newUser.email" name="emailInput" ></p>
+    <p class="loginItem">Password: <input class="loginInput" type="password" [(ngModel)]="newUser.password" name="passwordInput" ></p>
+    <p *ngIf="passwordError != undefined" >{{passwordError}}</p>
+    <p class="loginItem">Confirm Password: <input class="loginInput" type="password" [(ngModel)]="newUser.confirm_password" name="confirmPasswordInput" ></p>
+    <input name="submit" type="submit" value="Register">
+  </form>
+</div>
